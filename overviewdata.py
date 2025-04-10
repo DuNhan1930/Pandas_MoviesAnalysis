@@ -14,3 +14,4 @@ print(data.loc[10398:10403, ['release_date', 'release_year']])
 data['release_date'] = pd.to_datetime(data['release_date'], format='%m/%d/%y', errors='coerce')
 print("release_date have mismatch format(e.g. 2067 instead of 1967) in some rows:")
 print(data.loc[10398:10403, ['release_date', 'release_year']])
+

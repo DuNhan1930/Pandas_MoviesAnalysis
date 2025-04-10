@@ -82,12 +82,12 @@ def analyze_profits(df):
 
 # 6. Most frequent directors and actors
 def analyze_people(df):
-    top_director = df['director'].value_counts().idxmax()
-    num_movies = df['director'].value_counts().max()
-    print(f"Top director: {top_director} ({num_movies} movies)")
+    director_counts = df['director'].value_counts()
+    top_director = director_counts.idxmax()
+    print(f"Top director: {top_director} ({director_counts.max()} movies)")
 
-    all_actors = df['cast'].str.split('|').explode()
-    actor_counts = all_actors.value_counts()
+    actor_series = df['cast'].str.split('|').explode()
+    actor_counts = actor_series.value_counts()
     top_actor = actor_counts.idxmax()
     print(f"Top actor: {top_actor} ({actor_counts.max()} movies)")
 
